@@ -15,7 +15,6 @@ var alphaCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(alphaCmd)
-	addConfig(alphaCmd)
 }
 
 func runAlpha(cmd *cobra.Command, args []string) {

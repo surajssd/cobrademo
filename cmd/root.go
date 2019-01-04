@@ -20,17 +20,14 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(cobraInit)
+	// add config flag
+	rootCmd.PersistentFlags().String(
+		"config",
+		os.ExpandEnv("$HOME/.config"),
+		"Path to config file")
+	viper.BindPFlag("config", rootCmd.PersistentFlags().Lookup("config"))
 }
 
 func cobraInit() {
 	viper.AutomaticEnv()
-}
-
-func addConfig(cmd *cobra.Command) {
-	// add config flag
-	cmd.PersistentFlags().String(
-		"config",
-		os.ExpandEnv("$HOME/.config"),
-		"Path to config file")
-	viper.BindPFlag("config", cmd.PersistentFlags().Lookup("config"))
 }

@@ -15,7 +15,6 @@ var oneCmd = &cobra.Command{
 
 func init() {
 	numCmd.AddCommand(oneCmd)
-	addConfig(oneCmd)
 }
 
 func runOne(cmd *cobra.Command, args []string) {
